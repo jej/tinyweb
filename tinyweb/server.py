@@ -1,5 +1,6 @@
 """
 Tiny Web - pretty simple and powerful web server for tiny platforms like ESP8266 / ESP32
+https://github.com/belyalov/tinyweb
 https://github.com/metachris/tinyweb/
 
 MIT license
