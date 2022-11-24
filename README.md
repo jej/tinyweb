@@ -2,6 +2,8 @@
 
 Simple, lightweight, async HTTP webserver for tiny devices like **ESP8266** / **ESP32** running [micropython](https://github.com/micropython/micropython).
 
+This repository merges the work of [belyalov](https://github.com/belyalov/tinyweb) (original author) and [metachris](https://github.com/metachris/tinyweb).
+
 ### Features
 
 * Fully asynchronous when using with [uasyncio](https://github.com/micropython/micropython-lib/tree/v1.0/uasyncio) library for MicroPython.
