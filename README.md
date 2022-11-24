@@ -4,7 +4,7 @@ Simple, lightweight, async HTTP webserver for tiny devices like **ESP8266** / **
 
 ### Features
 
-* Fully asynchronous when using with [uasyncio](https://github.com/micropython/micropython-lib/tree/master/uasyncio) library for MicroPython.
+* Fully asynchronous when using with [uasyncio](https://github.com/micropython/micropython-lib/tree/v1.0/uasyncio) library for MicroPython.
 * [Flask](http://flask.pocoo.org/) / [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/) like API.
 * *Tiny* memory usage. So you can run it on devices like **ESP8266 / ESP32** with 64K/96K of onboard RAM. BTW, there is a huge room for optimizations - so your contributions are warmly welcomed.
 * Support for static content serving from filesystem.
@@ -19,9 +19,12 @@ Or the minified version (9.3kb instead of 27kb):
 
 ```wget https://raw.githubusercontent.com/metachris/tinyweb/master/tinyweb/server_min.py -O tinyweb.py```
 
+* [logging](https://github.com/micropython/micropython-lib/tree/master/python-stdlib/logging)
 
 **Changes from [upstream tinyweb](https://github.com/belyalov/tinyweb):**
 
+* [uasyncio](https://github.com/micropython/micropython-lib/tree/v1.0/uasyncio) - micropython version of *async* python library.
+* [uasyncio-core](https://github.com/micropython/micropython-lib/tree/v1.0/uasyncio.core)
 * Removed logging depedency -- this can be downloaded without dependencies like this:
 * `send_file` with auto mime-type detection (based on filename)
 * `response.html(your_content_str)` and `response.json(your_response_obj)` helper

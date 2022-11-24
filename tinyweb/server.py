@@ -38,6 +38,8 @@ except ImportError:
         log_err(msg)
         sys.print_exception(exc)
 
+type_gen = type((lambda: (yield))())
+
 # uasyncio v3 is shipped with MicroPython 1.13, and contains some subtle
 # but breaking changes. See also https://github.com/peterhinch/micropython-async/blob/master/v3/README.md
 IS_UASYNCIO_V3 = hasattr(
@@ -355,7 +357,7 @@ class response:
             with open(filename) as f:
                 await self._send_headers()
                 gc.collect()
-                buf = bytearray(128)
+                buf = bytearray(min(stat[6], buf_size))
                 while True:
                     size = f.readinto(buf)
                     if size == 0:
@@ -393,7 +395,7 @@ async def restful_resource_handler(req, resp, param=None):
     # it can also return error code together with str / dict
     # res = {'blah': 'blah'}
     # res = {'blah': 'blah'}, 201
-    if isinstance(res, asyncio.type_gen):
+    if isinstance(res, type_gen):
         # Result is generator, use chunked response
         # NOTICE: HTTP 1.0 by itself does not support chunked responses, so, making workaround:
         # Response is HTTP/1.1 with Connection: close
